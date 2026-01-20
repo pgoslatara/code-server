@@ -94,7 +94,7 @@ jobs:
           echo "$HOME/.local/bin" >> $GITHUB_PATH
 
       - name: Download npm package
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v7
         with:
           name: npm-release-package
 
@@ -118,7 +118,7 @@ jobs:
           VERSION: ${{ env.VERSION }}
         run: npm run package $PKG_ARCH
 
-      - uses: softprops/action-gh-release@v1
+      - uses: softprops/action-gh-release@v2
         with:
           draft: true
           discussion_category_name: "📣 Announcements"
@@ -160,7 +160,7 @@ jobs:
       - run: brew install python-setuptools
 
       - name: Download npm package
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v7
         with:
           name: npm-release-package
 
@@ -179,7 +179,7 @@ jobs:
           VERSION: ${{ env.VERSION }}
         run: npm run package
 
-      - uses: softprops/action-gh-release@v1
+      - uses: softprops/action-gh-release@v2
         with:
           draft: true
           discussion_category_name: "📣 Announcements"
@@ -221,7 +221,7 @@ jobs:
       - run: brew install python-setuptools
 
       - name: Download npm package
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v7
         with:
           name: npm-release-package
 
@@ -240,7 +240,7 @@ jobs:
           VERSION: ${{ env.VERSION }}
         run: npm run package
 
-      - uses: softprops/action-gh-release@v1
+      - uses: softprops/action-gh-release@v2
         with:
           draft: true
           discussion_category_name: "📣 Announcements"
@@ -253,11 +253,11 @@ jobs:
     needs: npm-version
     steps:
       - name: Download npm package
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v7
         with:
           name: npm-release-package
 
-      - uses: softprops/action-gh-release@v1
+      - uses: softprops/action-gh-release@v2
         with:
           draft: true
           discussion_category_name: "📣 Announcements"
@@ -303,7 +303,7 @@ jobs:
       - run: tar -czf package.tar.gz release
 
       - name: Upload npm package artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: npm-release-package
           path: ./package.tar.gz
